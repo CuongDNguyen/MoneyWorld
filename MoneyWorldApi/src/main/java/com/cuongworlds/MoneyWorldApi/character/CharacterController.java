@@ -14,6 +14,7 @@ public class CharacterController {
     @Autowired
     private CharacterRepository characterRepository;
 
+    @CrossOrigin
     @GetMapping("/characters")
     List<Character> findAll() {
         return characterRepository.findAll();
