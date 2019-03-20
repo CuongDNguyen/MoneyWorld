@@ -1,0 +1,23 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+moneyworldreact/node_modules
+moneyworldreact/.pnp
+moneyworldreact/.pnp.js
+
+# testing
+moneyworldreact/coverage
+
+# production
+moneyworldreact/build
+
+# misc
+moneyworldreact/.DS_Store
+moneyworldreact/.env.local
+moneyworldreact/.env.development.local
+moneyworldreact/.env.test.local
+moneyworldreact/.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
