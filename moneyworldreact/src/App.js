@@ -24,17 +24,24 @@ class App extends Component {
           console.log(characterArray[i]);
          }
          this.setState({
-          characters: [characterArray]
+          characters: [...characterArray]
         })
         })
     .catch(error => alert(error))
   }
 
   render() {
-    var characters = this.state.characters;
-    console.log(characters[0]);
+    console.log(this.state.characters);
+    const characters = this.state.characters.map((character, i) => (
+      <ul key={i}> 
+        <li> Name: {character.name} </li>
+        <li> Skill: {character.skill} </li>
+        <li> Money: {character.money} </li>
+      </ul>
+    ))
     return (
       <div className="App">
+        {characters}
       </div>
     );
   }
