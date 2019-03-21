@@ -2,6 +2,7 @@ package com.cuongworlds.MoneyWorldApi.character;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,8 +17,9 @@ public class CharacterController {
 
     @CrossOrigin
     @GetMapping("/characters")
-    List<Character> findAll() {
-        return characterRepository.findAll();
+    ResponseEntity<List<Character>> findAll() {
+
+      return new ResponseEntity(characterRepository.findAll(), HttpStatus.OK);
     }
 
     @ResponseStatus(HttpStatus.CREATED)

@@ -2,6 +2,8 @@ package com.cuongworlds.MoneyWorldApi;
 
 import com.cuongworlds.MoneyWorldApi.character.Character;
 import com.cuongworlds.MoneyWorldApi.character.CharacterRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,9 +19,12 @@ public class MoneyWorldApiApplication {
 	@Bean
 	CommandLineRunner initDatabase(CharacterRepository characterRepository) {
 		return args -> {
-			characterRepository.save(new Character("Developer Cuong", "Software Developer", 0));
-			characterRepository.save(new Character("Risky Dan", "The Stock Trader", 0));
-
+			ObjectMapper mapper = new ObjectMapper();
+			mapper.enable(SerializationFeature.WRAP_ROOT_VALUE);
+			Character dC = new Character("Developer Cuong", "Software Developer", 0);
+			Character rD = new Character("Risky Dan", "The Stock Trader", 5);
+			characterRepository.save(dC);
+			characterRepository.save(rD);
 		};
 	}
 }
