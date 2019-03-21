@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import CharacterForm from './CharacterForm'
 
 class App extends Component {
 
@@ -42,6 +43,7 @@ class App extends Component {
     return (
       <div className="App">
         {characters}
+        <CharacterForm />
       </div>
     );
   }

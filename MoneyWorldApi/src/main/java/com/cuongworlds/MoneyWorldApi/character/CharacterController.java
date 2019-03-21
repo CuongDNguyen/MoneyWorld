@@ -23,7 +23,8 @@ public class CharacterController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/characters")
+    @CrossOrigin
+    @PostMapping(path = "/characters", consumes = "application/json", produces = "application/json")
     Character newCharacter(@RequestBody Character newCharacter) {
         return characterRepository.save(newCharacter);
     }
