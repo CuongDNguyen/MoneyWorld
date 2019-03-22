@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class CharacterController {
 
     @Autowired
     private CharacterRepository characterRepository;
 
-    @CrossOrigin
     @GetMapping("/characters")
     ResponseEntity<List<Character>> findAll() {
 
@@ -23,7 +23,6 @@ public class CharacterController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @CrossOrigin
     @PostMapping(path = "/characters", consumes = "application/json", produces = "application/json")
     Character newCharacter(@RequestBody Character newCharacter) {
         return characterRepository.save(newCharacter);
@@ -67,7 +66,7 @@ public class CharacterController {
                 });
     }
 
-    @DeleteMapping("/characters/{id}")
+    @DeleteMapping(path = "/characters/{id}", consumes = "application/json", produces = "application/json")
     void deleteCharacter(@PathVariable Long id) {
         characterRepository.deleteById(id);
     }

@@ -40,6 +40,7 @@ class App extends Component {
         <li> Money: {character.money} </li>
       </ul>
     ))
+
     return (
       <div className="App">
         {characters}
